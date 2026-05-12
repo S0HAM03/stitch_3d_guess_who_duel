@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#920020",
+                    "primary-fixed-dim": "#95ccff",
+                    "surface-variant": "#e1e2e6",
+                    "tertiary-fixed": "#ffe083",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#e7e8ec",
+                    "surface-bright": "#f8f9fd",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#003a5c",
+                    "on-surface-variant": "#3e4852",
+                    "inverse-surface": "#2e3134",
+                    "on-tertiary-fixed-variant": "#564500",
+                    "inverse-primary": "#95ccff",
+                    "inverse-on-surface": "#eff1f5",
+                    "surface-container-highest": "#e1e2e6",
+                    "tertiary": "#735c00",
+                    "on-surface": "#191c1f",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#e3c461",
+                    "primary-container": "#00a8ff",
+                    "on-tertiary-fixed": "#231b00",
+                    "secondary-container": "#dd2d42",
+                    "surface": "#f8f9fd",
+                    "on-secondary-container": "#fffbff",
+                    "background": "#f8f9fd",
+                    "primary": "#006399",
+                    "surface-container-low": "#f2f3f7",
+                    "secondary-fixed-dim": "#ffb3b2",
+                    "outline": "#6f7883",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#006399",
+                    "on-primary-fixed-variant": "#004a75",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#443600",
+                    "on-background": "#191c1f",
+                    "secondary": "#b9082c",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#edeef2",
+                    "on-secondary-fixed": "#410008",
+                    "primary-fixed": "#cde5ff",
+                    "tertiary-container": "#bb9e3f",
+                    "on-primary-fixed": "#001d32",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d9dade",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#bec7d3",
+                    "secondary-fixed": "#ffdad9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "xl": "32px",
+                    "sm": "12px",
+                    "md": "16px",
+                    "safe-margin": "20px",
+                    "base": "8px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "button-text": ["Plus Jakarta Sans"],
+                    "label-bold": ["Plus Jakarta Sans"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "button-text": ["20px", {"lineHeight": "1.0", "fontWeight": "800"}],
+                    "label-bold": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glossy-sheen {
+            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 100%);
+        }
+        .text-stroke {
+            -webkit-text-stroke: 2px #003a5c;
+        }
+        .loading-pattern {
+            background-image: radial-gradient(#00a8ff 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-hidden select-none">
+<!-- Blurred Game Environment Background -->
+<div class="fixed inset-0 z-0">
+<img class="w-full h-full object-cover blur-xl scale-110 opacity-40" data-alt="A blurred, soft-focus 3D gaming arena featuring bright primary colors like sky blue and cherry red. The environment shows stylized plastic toy-like textures with soft ambient occlusion and specular highlights. The atmosphere is friendly and exciting, resembling a premium digital board game world with high-key lighting and a shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_e21Mj8SWDO1ueJgHUyP2UmbQykdB3iV0zc1vuvYa7s18NcC29GFyYSg4GjE2jaF9Dlfeq7-9mircbrbfq-euwscj42mnG1tZgv4pxwEnylrz6GduQcSiL_gOZuNmOsW8YqVO4c6kmhQm1rfss8i0tzGPyM5MK3erTNxqkdAOO55mwWQlnOV12dJXteeC_EJ7Te_eX9DATkm0aPi4bTESNyLGYK7Cz5RR3UMP7wN4czH_rzb-_SYIs1drKdi0GCHfAQlozZzhkXKK"/>
+<div class="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-primary-container/20 loading-pattern opacity-30"></div>
+</div>
+<!-- Top App Bar (As defined in JSON) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-lg py-md bg-surface/80 backdrop-blur-md shadow-[0_4px_0_0_rgba(0,0,0,0.1)] rounded-b-xl">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-headline-lg">videogame_asset</span>
+<h1 class="font-headline-lg text-headline-lg font-extrabold text-primary-container drop-shadow-[0_2px_0_rgba(0,0,0,0.2)] uppercase tracking-wider">GUESS WHO 3D</h1>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:scale-105 transition-transform duration-200 active:translate-y-1">settings</button>
+</header>
+<!-- Main Content Area -->
+<main class="relative z-10 flex-1 flex flex-col items-center justify-center px-safe-margin pt-xl">
+<!-- Game Logo Branding -->
+<div class="mb-xl flex flex-col items-center">
+<div class="relative">
+<span class="font-headline-lg text-[64px] font-extrabold text-primary-container drop-shadow-[0_8px_0_#003a5c] tracking-tighter uppercase block leading-none">
+                    GUESS
+                </span>
+<span class="font-headline-lg text-[48px] font-extrabold text-secondary drop-shadow-[0_6px_0_#410008] tracking-tighter uppercase block leading-none ml-lg">
+                    WHO?
+                </span>
+</div>
+</div>
+<!-- Central 3D Character Area -->
+<div class="relative w-full max-w-sm aspect-square flex items-center justify-center">
+<!-- Decorative Glow Rings -->
+<div class="absolute inset-0 bg-primary/10 rounded-full animate-pulse"></div>
+<div class="absolute inset-10 border-4 border-dashed border-primary/20 rounded-full"></div>
+<!-- Character Asset -->
+<div class="relative z-10 w-full h-full flex items-center justify-center">
+<img class="w-full h-full object-contain drop-shadow-2xl" data-alt="A high-quality 3D rendered cartoon character with large expressive eyes and a friendly smile. The character is holding a large, glossy 3D magnifying glass and looking curiously through it. The character features soft, plastic-like textures, vibrant blue clothing, and is lit with cinematic three-point lighting that emphasizes its rounded, tactile shape. Modern casual game art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQENvbVffY5in9FHvM2H2UoeNzfrmpxr4hJCwNXRu6pOvwc_SwtQD6TPrdLdZgGXPu3iByKYnylGgij-z4kwtjlki_IS6WUmJpjKSEPmwUyiaOOv7phvCTI4b5mGkTypVlRv-qyTDoiBGK-NjrefctVSienoT-0OByjYQDPBAR3UpGt1dITCLMA8mC0dzRWqFamlRTOt8awdYxDylAVRB8uTNgjWpWyeaxplmrxa8eKqDJCmYHJOGNAUCO_1NgneErQmGXKoxwfuJt"/>
+</div>
+<!-- Floating Clues UI Decoration -->
+<div class="absolute -top-4 -right-4 bg-tertiary-fixed text-on-tertiary-fixed px-md py-xs rounded-xl shadow-lg rotate-12 flex items-center gap-xs border-b-4 border-tertiary">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<span class="font-label-bold text-label-bold">SEARCHING...</span>
+</div>
+<div class="absolute bottom-10 -left-6 bg-secondary-container text-on-secondary-container px-md py-xs rounded-xl shadow-lg -rotate-6 flex items-center gap-xs border-b-4 border-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span class="font-label-bold text-label-bold">IDENTIFYING</span>
+</div>
+</div>
+<!-- Loading Logic Section -->
+<div class="w-full max-w-md mt-auto mb-xl px-md">
+<div class="flex justify-between items-end mb-sm">
+<div class="flex flex-col">
+<span class="font-label-bold text-label-bold text-primary uppercase">Initializing Board</span>
+<span class="font-body-md text-on-surface-variant opacity-70">Fetching player avatars...</span>
+</div>
+<div class="font-headline-md text-primary drop-shadow-sm">
+                    78<span class="text-label-bold">%</span>
+</div>
+</div>
+<!-- Tactile Progress Bar -->
+<div class="h-8 w-full bg-surface-container-highest rounded-full p-1 shadow-[inset_0_4px_8px_rgba(0,0,0,0.15)] overflow-hidden">
+<div class="h-full w-[78%] bg-primary-container rounded-full relative overflow-hidden shadow-[0_2px_4px_rgba(0,0,0,0.2)]">
+<!-- Glossy Overlay -->
+<div class="absolute inset-0 glossy-sheen"></div>
+<!-- Animated Highlight -->
+<div class="absolute inset-0 bg-white/20 w-1/2 -skew-x-12 translate-x-1/2"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Interface Tray (Suppressed Nav, but adding tactile hint) -->
+<footer class="fixed bottom-0 left-0 w-full z-50 flex flex-col items-center px-sm pb-safe pt-sm bg-surface-container-highest/90 backdrop-blur-xl border-t-2 border-white/20 shadow-[0_-4px_10px_rgba(0,0,0,0.1)] rounded-t-xl">
+<div class="w-12 h-1.5 bg-outline-variant/30 rounded-full mb-md"></div>
+<div class="w-full flex justify-around items-center mb-base">
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 opacity-80">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-bold text-label-bold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-md py-xs shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)]">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-bold text-label-bold">Lobby</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 opacity-80">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-bold text-label-bold">Store</span>
+</div>
+</div>
+</footer>
+<!-- Playful Interaction Tip -->
+<div class="fixed bottom-24 w-full flex justify-center px-lg pointer-events-none z-20">
+<div class="bg-surface-bright/90 backdrop-blur-sm border border-outline-variant px-lg py-sm rounded-full shadow-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-tertiary">lightbulb</span>
+<p class="font-body-md text-on-surface text-sm">TIP: Knock down cards you're sure about!</p>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .glossy-sheen {
+            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 100%);
+        }
+        .three-d-shadow {
+            box-shadow: 0 8px 0 0 rgba(0,0,0,0.2);
+        }
+        .three-d-shadow-active {
+            box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#920020",
+                        "primary-fixed-dim": "#95ccff",
+                        "surface-variant": "#e1e2e6",
+                        "tertiary-fixed": "#ffe083",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e7e8ec",
+                        "surface-bright": "#f8f9fd",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#003a5c",
+                        "on-surface-variant": "#3e4852",
+                        "inverse-surface": "#2e3134",
+                        "on-tertiary-fixed-variant": "#564500",
+                        "inverse-primary": "#95ccff",
+                        "inverse-on-surface": "#eff1f5",
+                        "surface-container-highest": "#e1e2e6",
+                        "tertiary": "#735c00",
+                        "on-surface": "#191c1f",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#e3c461",
+                        "primary-container": "#00a8ff",
+                        "on-tertiary-fixed": "#231b00",
+                        "secondary-container": "#dd2d42",
+                        "surface": "#f8f9fd",
+                        "on-secondary-container": "#fffbff",
+                        "background": "#f8f9fd",
+                        "primary": "#006399",
+                        "surface-container-low": "#f2f3f7",
+                        "secondary-fixed-dim": "#ffb3b2",
+                        "outline": "#6f7883",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#006399",
+                        "on-primary-fixed-variant": "#004a75",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#443600",
+                        "on-background": "#191c1f",
+                        "secondary": "#b9082c",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#edeef2",
+                        "on-secondary-fixed": "#410008",
+                        "primary-fixed": "#cde5ff",
+                        "tertiary-container": "#bb9e3f",
+                        "on-primary-fixed": "#001d32",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d9dade",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#bec7d3",
+                        "secondary-fixed": "#ffdad9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xl": "32px",
+                        "sm": "12px",
+                        "md": "16px",
+                        "safe-margin": "20px",
+                        "base": "8px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "button-text": ["Plus Jakarta Sans"],
+                        "label-bold": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "button-text": ["20px", {"lineHeight": "1.0", "fontWeight": "800"}],
+                        "label-bold": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md overflow-x-hidden">
+<!-- TopAppBar Shell Component -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-lg py-md bg-surface/80 backdrop-blur-md shadow-[0_4px_0_0_rgba(0,0,0,0.1)] rounded-b-xl">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[28px] hover:scale-105 transition-transform duration-200" data-icon="videogame_asset">videogame_asset</span>
+<h1 class="font-headline-lg text-headline-md uppercase tracking-wider font-extrabold text-primary-container drop-shadow-[0_2px_0_rgba(0,0,0,0.2)]">GUESS WHO 3D</h1>
+</div>
+<button class="active:translate-y-1 active:shadow-none transition-all hover:scale-105 duration-200">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="flex-grow pt-32 pb-32 px-safe-margin max-w-md mx-auto w-full flex flex-col gap-xl">
+<!-- Player Identity Section -->
+<section class="flex flex-col items-center gap-md">
+<div class="relative">
+<div class="w-32 h-32 rounded-full border-4 border-primary-container shadow-xl overflow-hidden bg-surface-container">
+<img alt="Player Avatar" class="w-full h-full object-cover" data-alt="A stylized 3D avatar of a friendly character with a modern, glossy finish. The character has vibrant features and is set against a soft, bright background that matches the light-mode UI. The aesthetic is clean and playful, with high-quality digital textures and soft-key lighting that emphasizes its toy-like physical properties." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaCXN_JGMnBKYxEU834rcZy1akTXv9e6AhSfBdPeAoF8WIVn2Ay1RdNkt3k5sFaMKnDFH0sa1cbLzz79ieULb8Sx1So02t3Vw5WzDEayT7hWeScoywYf1DPxciCU4SNdkX-PsKqd6b6HBamut5PywoF--hbf5He2ke8g2qgMEnPisqjSPzuG5CuLizUlO1dvdGI26omyS067visP51OgWwLHO2LhLxQhmp0qs5GkTFq8bVW5NBXJezYVE42obBRX5X-xShs6Q-UN5V"/>
+</div>
+<div class="absolute -bottom-2 right-0 bg-tertiary-container text-on-tertiary-container px-sm py-xs rounded-full shadow-md font-label-bold text-label-bold border-2 border-white">
+                    LVL 12
+                </div>
+</div>
+<div class="text-center">
+<h2 class="font-headline-md text-headline-md text-on-surface">RohanPlayz</h2>
+<div class="flex items-center justify-center gap-xs text-primary font-label-bold">
+<span class="material-symbols-outlined text-base" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span>PRO RANK #402</span>
+</div>
+</div>
+</section>
+<!-- Main Action Buttons -->
+<section class="flex flex-col gap-lg">
+<!-- Host Game Button -->
+<div class="group">
+<button class="w-full bg-primary-container h-20 rounded-xl relative overflow-hidden transition-all duration-100 three-d-shadow active:translate-y-1 active:three-d-shadow-active flex items-center justify-center gap-md group-hover:scale-[1.02]">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<div class="absolute inset-x-0 top-0 h-1 bg-white/30 rounded-t-xl"></div>
+<span class="material-symbols-outlined text-white text-[32px]" data-icon="add_circle" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-button-text text-button-text text-white drop-shadow-sm">HOST GAME</span>
+</button>
+</div>
+<!-- Join Game Button -->
+<div class="group">
+<button class="w-full bg-secondary-container h-20 rounded-xl relative overflow-hidden transition-all duration-100 three-d-shadow active:translate-y-1 active:three-d-shadow-active flex items-center justify-center gap-md group-hover:scale-[1.02]">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<div class="absolute inset-x-0 top-0 h-1 bg-white/30 rounded-t-xl"></div>
+<span class="material-symbols-outlined text-white text-[32px]" data-icon="sports_esports" style="font-variation-settings: 'FILL' 1;">sports_esports</span>
+<span class="font-button-text text-button-text text-white drop-shadow-sm">JOIN GAME</span>
+</button>
+</div>
+</section>
+<!-- Topic Selection Grid (Revealed State Mockup) -->
+<section class="mt-md">
+<h3 class="font-label-bold text-label-bold text-on-surface-variant mb-md uppercase tracking-widest text-center">CHOOSE YOUR TOPIC</h3>
+<div class="grid grid-cols-2 gap-md">
+<!-- Indian Celebrities -->
+<button class="aspect-square bg-surface-container-high rounded-xl border-2 border-white shadow-sm flex flex-col items-center justify-center gap-sm active:scale-95 transition-transform p-md text-center">
+<div class="w-16 h-16 bg-tertiary-fixed rounded-full flex items-center justify-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)]">
+<span class="material-symbols-outlined text-on-tertiary-fixed text-[36px]" data-icon="movie">movie</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface">Indian Celebrities</span>
+</button>
+<!-- Indian Cricketers -->
+<button class="aspect-square bg-surface-container-high rounded-xl border-2 border-white shadow-sm flex flex-col items-center justify-center gap-sm active:scale-95 transition-transform p-md text-center">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)]">
+<span class="material-symbols-outlined text-on-primary-fixed text-[36px]" data-icon="sports_cricket">sports_cricket</span>
+</div>
+<span class="font-label-bold text-label-bold text-on-surface">Indian Cricketers</span>
+</button>
+</div>
+</section>
+<!-- Stats Bento Grid -->
+<section class="grid grid-cols-3 gap-sm mt-md">
+<div class="bg-surface-container-low p-sm rounded-lg border border-outline-variant flex flex-col items-center">
+<span class="text-secondary font-headline-md text-headline-md">24</span>
+<span class="text-[10px] font-label-bold text-outline uppercase">Wins</span>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg border border-outline-variant flex flex-col items-center">
+<span class="text-primary font-headline-md text-headline-md">120</span>
+<span class="text-[10px] font-label-bold text-outline uppercase">Played</span>
+</div>
+<div class="bg-surface-container-low p-sm rounded-lg border border-outline-variant flex flex-col items-center">
+<span class="text-tertiary font-headline-md text-headline-md">800</span>
+<span class="text-[10px] font-label-bold text-outline uppercase">Gems</span>
+</div>
+</section>
+</main>
+<!-- Join Lobby Overlay (Simplified representation) -->
+<div class="fixed inset-0 z-[60] bg-surface-dim/40 backdrop-blur-sm flex items-end justify-center pointer-events-none opacity-0 transition-opacity">
+<div class="bg-surface rounded-t-[32px] w-full max-w-md p-xl flex flex-col gap-lg shadow-[0_-10px_40px_rgba(0,0,0,0.2)] border-t-4 border-secondary-container pointer-events-auto">
+<div class="w-16 h-1.5 bg-outline-variant rounded-full mx-auto mb-md"></div>
+<h2 class="font-headline-md text-headline-md text-center text-on-surface">Enter Lobby Code</h2>
+<div class="flex justify-center gap-sm">
+<div class="w-12 h-16 border-2 border-outline-variant rounded-xl flex items-center justify-center font-headline-md text-headline-md bg-surface-container-lowest">_</div>
+<div class="w-12 h-16 border-2 border-outline-variant rounded-xl flex items-center justify-center font-headline-md text-headline-md bg-surface-container-lowest">_</div>
+<div class="w-12 h-16 border-2 border-outline-variant rounded-xl flex items-center justify-center font-headline-md text-headline-md bg-surface-container-lowest">_</div>
+<div class="w-12 h-16 border-2 border-outline-variant rounded-xl flex items-center justify-center font-headline-md text-headline-md bg-surface-container-lowest">_</div>
+</div>
+<!-- Numeric Keypad -->
+<div class="grid grid-cols-3 gap-md pb-md">
+<button class="h-16 rounded-xl bg-surface-container text-headline-md font-headline-md hover:bg-surface-container-high active:scale-95 transition-all">1</button>
+<button class="h-16 rounded-xl bg-surface-container text-headline-md font-headline-md hover:bg-surface-container-high active:scale-95 transition-all">2</button>
+<button class="h-16 rounded-xl bg-surface-container text-headline-md font-headline-md hover:bg-surface-container-high active:scale-95 transition-all">3</button>
+<button class="h-16 rounded-xl bg-surface-container text-headline-md font-headline-md hover:bg-surface-container-high active:scale-95 transition-all">4</button>
+<button class="h-16 rounded-xl bg-surface-container text-headline-md font-headline-md hover:bg-surface-container-high active:scale-95 transition-all">5</button>
+<button class="h-16 rounded-xl bg-surface-container text-headline-md font-headline-md hover:bg-surface-container-high active:scale-95 transition-all">6</button>
+<button class="h-16 rounded-xl bg-surface-container text-headline-md font-headline-md hover:bg-surface-container-high active:scale-95 transition-all">7</button>
+<button class="h-16 rounded-xl bg-surface-container text-headline-md font-headline-md hover:bg-surface-container-high active:scale-95 transition-all">8</button>
+<button class="h-16 rounded-xl bg-surface-container text-headline-md font-headline-md hover:bg-surface-container-high active:scale-95 transition-all">9</button>
+<div class="h-16"></div>
+<button class="h-16 rounded-xl bg-surface-container text-headline-md font-headline-md hover:bg-surface-container-high active:scale-95 transition-all">0</button>
+<button class="h-16 rounded-xl bg-error-container text-on-error-container flex items-center justify-center active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="backspace">backspace</span>
+</button>
+</div>
+</div>
+</div>
+<!-- BottomNavBar Shell Component -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-sm pb-safe pt-sm bg-surface-container-highest/90 backdrop-blur-xl border-t-2 border-white/20 shadow-[0_-4px_10px_rgba(0,0,0,0.1)] rounded-t-xl">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-md py-xs shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-bold text-label-bold">Home</span>
+</a>
+<!-- Lobby (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 opacity-80 hover:bg-white/10 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-bold text-label-bold">Lobby</span>
+</a>
+<!-- Store (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 opacity-80 hover:bg-white/10 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-bold text-label-bold">Store</span>
+</a>
+</nav>
+</body></html>

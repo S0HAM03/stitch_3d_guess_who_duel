@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#920020",
+                    "primary-fixed-dim": "#95ccff",
+                    "surface-variant": "#e1e2e6",
+                    "tertiary-fixed": "#ffe083",
+                    "on-error-container": "#93000a",
+                    "surface-container-high": "#e7e8ec",
+                    "surface-bright": "#f8f9fd",
+                    "error": "#ba1a1a",
+                    "on-primary-container": "#003a5c",
+                    "on-surface-variant": "#3e4852",
+                    "inverse-surface": "#2e3134",
+                    "on-tertiary-fixed-variant": "#564500",
+                    "inverse-primary": "#95ccff",
+                    "inverse-on-surface": "#eff1f5",
+                    "surface-container-highest": "#e1e2e6",
+                    "tertiary": "#735c00",
+                    "on-surface": "#191c1f",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#e3c461",
+                    "primary-container": "#00a8ff",
+                    "on-tertiary-fixed": "#231b00",
+                    "secondary-container": "#dd2d42",
+                    "surface": "#f8f9fd",
+                    "on-secondary-container": "#fffbff",
+                    "background": "#f8f9fd",
+                    "primary": "#006399",
+                    "surface-container-low": "#f2f3f7",
+                    "secondary-fixed-dim": "#ffb3b2",
+                    "outline": "#6f7883",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#006399",
+                    "on-primary-fixed-variant": "#004a75",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#443600",
+                    "on-background": "#191c1f",
+                    "secondary": "#b9082c",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#edeef2",
+                    "on-secondary-fixed": "#410008",
+                    "primary-fixed": "#cde5ff",
+                    "tertiary-container": "#bb9e3f",
+                    "on-primary-fixed": "#001d32",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d9dade",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#bec7d3",
+                    "secondary-fixed": "#ffdad9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "xl": "32px",
+                    "sm": "12px",
+                    "md": "16px",
+                    "safe-margin": "20px",
+                    "base": "8px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "button-text": ["Plus Jakarta Sans"],
+                    "label-bold": ["Plus Jakarta Sans"],
+                    "body-md": ["Be Vietnam Pro"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Be Vietnam Pro"],
+                    "headline-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "button-text": ["20px", {"lineHeight": "1.0", "fontWeight": "800"}],
+                    "label-bold": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .glossy-button {
+            box-shadow: inset 0 2px 0 rgba(255,255,255,0.4), 0 4px 0 rgba(0,0,0,0.2);
+            transition: all 0.1s ease;
+        }
+        .glossy-button:active {
+            transform: translateY(2px);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 0 rgba(0,0,0,0.1);
+        }
+        .card-3d-slot {
+            perspective: 1000px;
+        }
+        .inner-shadow-shelf {
+            box-shadow: inset 0 4px 12px rgba(0,0,0,0.1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col overflow-hidden">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-lg py-md bg-surface/80 backdrop-blur-md shadow-[0_4px_0_0_rgba(0,0,0,0.1)] rounded-b-xl">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="videogame_asset">videogame_asset</span>
+<h1 class="font-headline-lg text-headline-lg font-extrabold text-primary-container drop-shadow-[0_2px_0_rgba(0,0,0,0.2)] uppercase tracking-wider">GUESS WHO 3D</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-container-high hover:scale-105 active:translate-y-1 transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+</header>
+<!-- Main Arena: 3D Room Background -->
+<main class="flex-1 relative mt-24 pb-32">
+<!-- Stylized 3D Room Background -->
+<div class="absolute inset-0 z-0">
+<img alt="3D Game Room" class="w-full h-full object-cover opacity-30" data-alt="A stylized 3D interior of a cozy, modern gaming lounge with soft volumetric lighting and playful, rounded furniture. The scene is rendered in a clean, vibrant aesthetic with pastel blues and warm wooden textures, creating a friendly and inviting atmosphere for a digital board game lobby. Floating geometric shapes and soft shadows enhance the depth of the room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgZF4SEEWuz-CxRDEy4hK1o-IWuN8cTd9849jxzmofDW-aONGnYxIcRu8eu858Z33hzPlsQ3SOwmTcbkvWix3AkyztZG0Aia1vOsXyrOrI6FxD2wkQeG8OfdamqptRMVeWHd3mcYeV_xUfBQa32NcHbfayh2ak_pTUSwhpqvANbyBJzv9HIag_Tbpw62_pin9mveCj5t4utevkv8HTKU7rtNj-8qxWMIB9l9QLNQ0-qA7zy7Bj5_-ajAsFpvIxntHHgihvMaSbMA2S"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-surface-container"></div>
+</div>
+<div class="relative z-10 h-full flex flex-col items-center px-safe-margin">
+<!-- Lobby Code Header -->
+<div class="mt-base bg-white/60 backdrop-blur-lg px-xl py-md rounded-2xl border-4 border-white shadow-xl flex flex-col items-center gap-xs">
+<span class="font-label-bold text-label-bold text-outline uppercase">Lobby Code</span>
+<span class="font-headline-lg text-headline-lg text-primary tracking-widest font-black">4829</span>
+</div>
+<!-- Player Slots Arena -->
+<div class="w-full max-w-2xl flex-1 flex flex-col md:flex-row justify-center items-center gap-xl mt-lg">
+<!-- Player 1: Host (Current User) -->
+<div class="flex flex-col items-center gap-md group">
+<div class="relative">
+<div class="w-32 h-32 md:w-48 md:h-48 rounded-full bg-primary/10 border-4 border-primary p-2 shadow-2xl relative">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Host Avatar" class="w-full h-full object-cover" data-alt="A high-quality 3D character portrait of a friendly male avatar with short brown hair and a bright blue hoodie. The style is semi-realistic with soft, clay-like textures and warm studio lighting, reflecting a playful gaming aesthetic. The background is a solid, clean neutral tone to emphasize the character's vibrant blue clothing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAH8fxXj6nz6kkbcqxVzxqhge1GG7lB523eQFTnadY2wx6QbrV-BqwVlr_CD4QMCTrHR3MqhBfq7XtshB1I8FNC-etjm9Ubv790rXVH3vGkvFGf9sqsggAEUuy1bvbdR6lT81u7RlFoh_clDpe_UhTYl6mb4Dtw_66omm8y7rHA7A1qw6XhpLWScJ90uj4vrGipk2ueXoL9QScX3N-7y0HCotQogteE9UJJTCWxxrehd1DhtcUi6Ugx9YeY4qDMzzqUkYyODyD_7vrY"/>
+</div>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-md py-xs rounded-full font-label-bold text-xs uppercase shadow-md">
+                            Host
+                        </div>
+</div>
+<div class="text-center">
+<p class="font-headline-md text-headline-md text-on-surface">CaptainBlue</p>
+<p class="font-body-md text-primary font-bold">READY</p>
+</div>
+</div>
+<!-- VS Divider -->
+<div class="hidden md:flex flex-col items-center">
+<div class="h-24 w-px bg-gradient-to-b from-transparent via-outline/30 to-transparent"></div>
+<span class="my-md font-black text-outline/40 italic text-2xl">VS</span>
+<div class="h-24 w-px bg-gradient-to-b from-transparent via-outline/30 to-transparent"></div>
+</div>
+<!-- Player 2: Guest -->
+<div class="flex flex-col items-center gap-md relative">
+<div class="relative">
+<div class="w-32 h-32 md:w-48 md:h-48 rounded-full bg-secondary/10 border-4 border-secondary p-2 shadow-2xl relative">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Guest Avatar" class="w-full h-full object-cover" data-alt="A charming 3D character portrait of a female avatar with glasses and a vibrant red sweater. The design follows a polished, toy-like aesthetic with smooth surfaces and gentle specular highlights. The lighting is bright and cheerful, mirroring the playful spirit of a 3D board game environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQOckJ9WR0A_YDteti4M--zjp2s5F3yyLTHPdaJdcJ_O4xmG_oCGeXIqvxEELtSGKn9_xjsrVF625arVvLHX-lvRGbCg3taj9UYb1Rai0wFaW8kJSOtU_MujgorIbHb0WTaCBb2ewQXTBxBJXQI8ArQpt_jFNDHsjOBVQd_hcamZw6MHA1V9vr-ks4xsgMYm7QHaiLf43rqMX0smHbvtW8oHhT2BqY41jtHi9FU0Nxla-WhCVDvx56Yduy1QkVaGTwGKHqpjktOmH0"/>
+</div>
+</div>
+<!-- Guest Controls Overlay (Desktop Style or Side-Aligned) -->
+<div class="absolute -right-16 top-1/2 -translate-y-1/2 flex flex-col gap-sm">
+<button class="glossy-button w-12 h-12 rounded-xl bg-surface-container-high text-on-surface-variant flex items-center justify-center hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+<button class="glossy-button w-12 h-12 rounded-xl bg-error-container text-on-error-container flex items-center justify-center hover:bg-error hover:text-on-error">
+<span class="material-symbols-outlined" data-icon="person_remove">person_remove</span>
+</button>
+</div>
+</div>
+<div class="text-center">
+<p class="font-headline-md text-headline-md text-on-surface">RedRider_99</p>
+<p class="font-body-md text-secondary font-bold uppercase tracking-widest">Joined</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Interaction Tray / Bottom Shell -->
+<div class="fixed bottom-0 left-0 w-full z-40 px-md pb-md flex flex-col gap-md">
+<!-- Mini Chat Window -->
+<div class="w-full max-w-md mx-auto bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-white/50">
+<div class="px-md py-sm bg-surface-container text-on-surface-variant font-label-bold text-xs flex justify-between items-center">
+<span>LOBBY CHAT</span>
+<span class="material-symbols-outlined scale-75" data-icon="expand_more">expand_more</span>
+</div>
+<div class="h-24 p-sm flex flex-col gap-xs overflow-y-auto inner-shadow-shelf">
+<div class="flex gap-xs">
+<span class="font-bold text-primary text-xs">CaptainBlue:</span>
+<span class="text-xs text-on-surface-variant">Ready to lose? 😉</span>
+</div>
+<div class="flex gap-xs">
+<span class="font-bold text-secondary text-xs">RedRider_99:</span>
+<span class="text-xs text-on-surface-variant">In your dreams! Let's go!</span>
+</div>
+<div class="flex gap-xs animate-pulse">
+<span class="text-xs italic text-outline">RedRider_99 is typing...</span>
+</div>
+</div>
+<div class="p-xs bg-surface-container-low flex gap-xs">
+<input class="flex-1 bg-white border-none rounded-lg text-xs py-base px-md focus:ring-2 focus:ring-primary" placeholder="Type a message..." type="text"/>
+<button class="bg-primary text-on-primary p-xs rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+<!-- Start Button Tray -->
+<div class="flex flex-col items-center gap-sm">
+<!-- Game Start Button (State: Active/Disabled depending on user logic, here showing disabled logic via opacity/style) -->
+<button class="glossy-button w-full max-w-sm py-md rounded-2xl bg-primary-container text-on-primary-container font-button-text text-button-text uppercase tracking-widest flex items-center justify-center gap-md shadow-[0_6px_0_#006399]">
+                START GAME
+                <span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span>
+</button>
+<p class="font-label-bold text-[10px] text-outline-variant uppercase">Waiting for 2nd player to confirm...</p>
+</div>
+</div>
+<!-- BottomNavBar Shell (Immutable Strings) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-sm pb-safe pt-sm bg-surface-container-highest/90 backdrop-blur-xl border-t-2 border-white/20 shadow-2xl rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 opacity-80 transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-bold text-label-bold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-md py-xs shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-bold text-label-bold">Lobby</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 opacity-80 transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-bold text-label-bold">Store</span>
+</a>
+</nav>
+</body></html>

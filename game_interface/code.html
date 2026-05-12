@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Be+Vietnam+Pro:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glossy-sheen {
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%);
+        }
+        .card-3d-shadow {
+            box-shadow: 0 4px 0 0 rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.05);
+        }
+        .button-3d-push {
+            box-shadow: 0 4px 0 0 #920020;
+        }
+        .button-3d-push:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 0 #920020;
+        }
+        .perspective-grid {
+            perspective: 1000px;
+        }
+        .rotated-board {
+            transform: rotateX(20deg);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#920020",
+                        "primary-fixed-dim": "#95ccff",
+                        "surface-variant": "#e1e2e6",
+                        "tertiary-fixed": "#ffe083",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e7e8ec",
+                        "surface-bright": "#f8f9fd",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#003a5c",
+                        "on-surface-variant": "#3e4852",
+                        "inverse-surface": "#2e3134",
+                        "on-tertiary-fixed-variant": "#564500",
+                        "inverse-primary": "#95ccff",
+                        "inverse-on-surface": "#eff1f5",
+                        "surface-container-highest": "#e1e2e6",
+                        "tertiary": "#735c00",
+                        "on-surface": "#191c1f",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#e3c461",
+                        "primary-container": "#00a8ff",
+                        "on-tertiary-fixed": "#231b00",
+                        "secondary-container": "#dd2d42",
+                        "surface": "#f8f9fd",
+                        "on-secondary-container": "#fffbff",
+                        "background": "#f8f9fd",
+                        "primary": "#006399",
+                        "surface-container-low": "#f2f3f7",
+                        "secondary-fixed-dim": "#ffb3b2",
+                        "outline": "#6f7883",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#006399",
+                        "on-primary-fixed-variant": "#004a75",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#443600",
+                        "on-background": "#191c1f",
+                        "secondary": "#b9082c",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#edeef2",
+                        "on-secondary-fixed": "#410008",
+                        "primary-fixed": "#cde5ff",
+                        "tertiary-container": "#bb9e3f",
+                        "on-primary-fixed": "#001d32",
+                        "on-error": "#ffffff",
+                        "surface-dim": "#d9dade",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#bec7d3",
+                        "secondary-fixed": "#ffdad9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xl": "32px",
+                        "sm": "12px",
+                        "md": "16px",
+                        "safe-margin": "20px",
+                        "base": "8px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "button-text": ["Plus Jakarta Sans"],
+                        "label-bold": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "button-text": ["20px", {"lineHeight": "1.0", "fontWeight": "800"}],
+                        "label-bold": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-hidden h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-lg py-md bg-surface/80 backdrop-blur-md shadow-[0_4px_0_0_rgba(0,0,0,0.1)] rounded-b-xl">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary" data-icon="videogame_asset">videogame_asset</span>
+<h1 class="font-headline-lg text-headline-lg font-extrabold text-primary-container drop-shadow-[0_2px_0_rgba(0,0,0,0.2)] uppercase tracking-wider">GUESS WHO 3D</h1>
+</div>
+<div class="flex items-center gap-md">
+<div class="bg-surface-container-high px-md py-xs rounded-full flex items-center gap-xs shadow-inner">
+<span class="material-symbols-outlined text-tertiary" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-bold text-label-bold text-on-surface">1,250</span>
+</div>
+<button class="material-symbols-outlined text-primary hover:scale-105 transition-transform" data-icon="settings">settings</button>
+</div>
+</header>
+<!-- Main Game Canvas (Arena) -->
+<main class="flex-1 mt-[72px] mb-[180px] relative flex flex-col items-center justify-center perspective-grid px-safe-margin">
+<!-- Opponent Avatar Section -->
+<div class="absolute top-4 flex flex-col items-center z-10">
+<div class="relative w-24 h-24 rounded-full border-4 border-secondary-container bg-surface-container-highest shadow-xl overflow-hidden group">
+<img class="w-full h-full object-cover scale-110" data-alt="A stylized 3D avatar of a friendly male opponent with a slight smirk, wearing a red hoodie and modern glasses. The background is a clean, vibrant gradient that matches the playful gaming aesthetic of Guess Who 3D. The lighting is soft and studio-like, emphasizing a high-quality character design with smooth surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoqhuk8oe-nRJi7t-OEQXnlATAVjvQ8CZUbk6sIjNg-WeuDUeRYiUsVCPfWsVt7gX6dLWFpPrKkKju3Xj6waOkjo4Fnxev2tzyzjeyEwbyEhgjRogdL7G_rBkxMr6TIX49lVsgAzNDrVYNHcX4On2R08YJIckm2t4e0tbnyrqkFYJRbe1Wi_nagpXR2DCw_cLUyFZXpYSEMNgApoogOqCiPXm0suNMxUbJlrMDO_gFq73bm91AK2_Mi8zhtXXXnXwT17lltOWASbqH"/>
+<div class="absolute bottom-0 w-full bg-secondary/80 py-1 text-center">
+<span class="text-[10px] font-bold text-white uppercase tracking-tighter">Opponent</span>
+</div>
+</div>
+<div class="mt-2 bg-on-secondary-fixed-variant text-white px-md py-1 rounded-full text-[12px] font-bold shadow-md">
+                THINKING...
+            </div>
+</div>
+<!-- 3D Game Board -->
+<div class="rotated-board w-full max-w-2xl grid grid-cols-4 sm:grid-cols-6 gap-sm p-md bg-primary/10 rounded-3xl border-b-[12px] border-primary/30 shadow-2xl">
+<!-- Character Card Template (Repeated for Visual) -->
+<!-- Active Card -->
+<div class="relative aspect-[3/4] bg-white rounded-xl card-3d-shadow border-2 border-white/50 overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform group">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<img class="w-full h-full object-contain p-2" data-alt="A cute female character card with bright orange hair and a green shirt, designed in a playful 3D cartoon style. The character is centered on a clean white background within a glossy, tactile card frame. The overall feel is that of a premium physical board game piece." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhYM90wNPyBfUxo71BCBbZbdd3yTDoEFfdYyrsf1g6Xv4CKJSuR96MFjvaCcmQ-eWSfTKDA9pI8x_Qv1yg7uGR0DNQ-kEYN-jpVj91q02XtYNwp6ZA8c9qQRVChLnL6p6E5b9-AsoafJdEPmcn8t6MPtfEawdne-MAg1isnftDHDUAxZJRlQDA9yy9BADgZsok6W-RN0Wzeuvc3kWmjB5jkKLahR3mNnX6kLRULpHzhomGD--Z1Ve_Wjg-ZhA8eH4t4TWbaVAHP2Sf"/>
+<div class="absolute bottom-0 w-full bg-surface-container-highest py-1 text-center border-t border-outline-variant">
+<span class="font-label-bold text-[10px] text-on-surface uppercase">Amy</span>
+</div>
+</div>
+<!-- Flipped Card (Knocked Down) -->
+<div class="relative aspect-[3/4] bg-surface-dim rounded-xl border-2 border-outline-variant opacity-60 grayscale scale-95 origin-bottom transition-all">
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-4xl" data-icon="close">close</span>
+</div>
+<div class="absolute bottom-0 w-full bg-outline/20 py-1 text-center">
+<span class="font-label-bold text-[10px] text-outline uppercase">John</span>
+</div>
+</div>
+<!-- Repeat Active Cards -->
+<div class="relative aspect-[3/4] bg-white rounded-xl card-3d-shadow border-2 border-white/50 overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform group">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<img class="w-full h-full object-contain p-2" data-alt="A male character card with a sporty look, wearing a blue cap and a confident smile. The character design is smooth and colorful, fitting the 3D toy-like aesthetic. The card has a subtle inner glow on the top edge and a clean tactile finish." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv7yFjqtog3igGC8PFjpsaAaaKbwLigC2Uve0YmRRIY8bplvn80xS80SYijekot2EgfmUwYkFWLJYBKCzIqcOxjLSE5s9XXg6ygBjJ4aXOuF0GLS0FXn05mu9EffdQTjHh7SHp-tg0ZpN6QPfgd51BmIyw7yI5CyTtNVl-B0PCUV87yOmtynWnyOIeNnXxsZvw8KPUIhiNj4oFKJmUk3a4zdVLu9cXxgBwXmZ6TmT8FqHDTFqt23JAamgGuhusrFWn_ry1oC8HBQw8"/>
+<div class="absolute bottom-0 w-full bg-surface-container-highest py-1 text-center border-t border-outline-variant">
+<span class="font-label-bold text-[10px] text-on-surface uppercase">Brad</span>
+</div>
+</div>
+<div class="relative aspect-[3/4] bg-white rounded-xl card-3d-shadow border-2 border-white/50 overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform group">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<img class="w-full h-full object-contain p-2" data-alt="A female character card with purple hair and glasses, showcasing a quirky and fun personality. The illustration is clean with bold lines and vibrant colors, set within a premium 3D game card container with specular highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWPTzBSDjjhtH-BkEs7ZHuIsEiBVuTuk3i6wmkLGtvpS34M5jn3rzMdupx_flYTxyTq-3q8Utnwv4sBbKviuAOq2kVtsJW5RMbYTlicg6Ja9b1rAKatYizDQ0j27JHx-82we6u91pn3Nv_7gEXbFOdOlG9nVAdUVO--YZWhJ-1x4HHo0UsP-8_EY-BcUPaKV5nLVkanM0kzo3Ux693N4wMxodysNxgmL1kcaIIc6-RgMLdn6HLklsp_wNXVAvdNnhOU3tKgk3Rf35p"/>
+<div class="absolute bottom-0 w-full bg-surface-container-highest py-1 text-center border-t border-outline-variant">
+<span class="font-label-bold text-[10px] text-on-surface uppercase">Chloe</span>
+</div>
+</div>
+<div class="relative aspect-[3/4] bg-white rounded-xl card-3d-shadow border-2 border-white/50 overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform group">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<img class="w-full h-full object-contain p-2" data-alt="A cheerful male character card with a beard and a yellow beanie. The 3D render style makes the character pop against the white card face, following the playful and high-contrast visual language of the Guess Who 3D interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADkzLFy_tvzQe_LF4KCfnZnqUFAtBx5yPxK1cogwmvaLMxQn65D-M65dqJbxFBjd8nylWTzHgDMKIl9XgxILsowVfBAogZBpkiJlnNEgmXkXb003tkonWioCdZMNH_v06NOtJmbtRSA3BIYeCj4IZjanjxsMAJ1Wc9NvT9-94w_EzhrggDc34Jn6S1hF2heyPhFC3kw5R2kEdSJFut7qnkH7_ZL7R3G6o9JlYDvmtBXXvYfFNRorV7AmMSXfCM-JNVG685PQxZo_zp"/>
+<div class="absolute bottom-0 w-full bg-surface-container-highest py-1 text-center border-t border-outline-variant">
+<span class="font-label-bold text-[10px] text-on-surface uppercase">Dan</span>
+</div>
+</div>
+<div class="relative aspect-[3/4] bg-white rounded-xl card-3d-shadow border-2 border-white/50 overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform group">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<img class="w-full h-full object-contain p-2" data-alt="A female character card with a professional look, wearing a blazer and a friendly expression. The card features tactile edges and a soft shadow, designed to look like a physical toy component in a digital environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk-CEHJmQvdnUOyY8zYlrTwsUMTOFAe2zcgFQ-YnXY11NLfVINl-_sRB85q-7B7L1jbY5_h1yM5BMTC80ZC_V05k9OByzxOn2dPXHywrwzy9DOAjYtf-2jNJA9xXdyOUzvGiEsiwL0hxOinOmFYFi6E9cKNa6UXEDQ_AatSdZZBXlgtuVRmvW6-GqfhkVczdVTLXbzXdObFr0KMvGJK2jMGT6X_GgSht5xfVvdOBAcOoMpovh-PTlFmneAVrFungRYCAGZVwIxa0Vj"/>
+<div class="absolute bottom-0 w-full bg-surface-container-highest py-1 text-center border-t border-outline-variant">
+<span class="font-label-bold text-[10px] text-on-surface uppercase">Eva</span>
+</div>
+</div>
+<!-- More Cards for Grid Fill -->
+<div class="relative aspect-[3/4] bg-white rounded-xl card-3d-shadow border-2 border-white/50 overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform hidden sm:block">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<img class="w-full h-full object-contain p-2" data-alt="A 3D character card of a boy with messy blonde hair and a striped shirt. The style is bright and kid-friendly, with glossy finishes on the card surface that catch the virtual light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQI2xRFAU7V8GzjjXVjhVi0Zi9d3apyRM82v1E2DTrl_FA8QgOBObHIMBFMi-r4sXEKuRzQG25xWcTmavvHSxDTUHFu21F2OBqsKtsh9Qg3Fvr4smPkjkFoZzAtARMcjB3iOreBILI50uory9WgXA0dkEoa_HlBpMyERQleTdxJ9jizoV7lw9SrogLYN3Tq2FBJn3k4A7_B8cDHEy6JVQLPmAAHnK2Non3008zk3vHNiMayPlv_QuxKnBM4r0M6CZ8ON3kNZRiRivb"/>
+<div class="absolute bottom-0 w-full bg-surface-container-highest py-1 text-center border-t border-outline-variant">
+<span class="font-label-bold text-[10px] text-on-surface uppercase">Finn</span>
+</div>
+</div>
+<div class="relative aspect-[3/4] bg-white rounded-xl card-3d-shadow border-2 border-white/50 overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform hidden sm:block">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<img class="w-full h-full object-contain p-2" data-alt="A stylish female character card with a headband and a bright smile. The illustration is clean and high-fidelity, optimized for a smooth 3D gaming experience. The card has a physical weight and depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOrquPIi6jhlSBrSaDuGPDxz-ORqRmSz1C49XkeOrGxXVpewJf8tTsHY1sRmBJL_Yv6a3nZEGpAsN5fAqyWTdiiJIR1Tqv9A3iDtC1Q7ArzMxJr9NI8HdQnCsfwax2XK9eARNIh-x_LfLjEvuAoHQFB5PGWnls8ZDRmGvcb1-h0RReUpmoR_to6kbK5jn410QWFH5wgLXThkR32l3bLbfo34qeD0tW8Ab9ShgXuRWZPJ5o3qKADtH4Fuw_t1v6rfXZeNZad5jle0lw"/>
+<div class="absolute bottom-0 w-full bg-surface-container-highest py-1 text-center border-t border-outline-variant">
+<span class="font-label-bold text-[10px] text-on-surface uppercase">Gigi</span>
+</div>
+</div>
+<div class="relative aspect-[3/4] bg-surface-dim rounded-xl border-2 border-outline-variant opacity-60 grayscale scale-95 origin-bottom hidden sm:block">
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline text-4xl" data-icon="close">close</span>
+</div>
+<div class="absolute bottom-0 w-full bg-outline/20 py-1 text-center">
+<span class="font-label-bold text-[10px] text-outline uppercase">Hank</span>
+</div>
+</div>
+<div class="relative aspect-[3/4] bg-white rounded-xl card-3d-shadow border-2 border-white/50 overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform hidden sm:block">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<img class="w-full h-full object-contain p-2" data-alt="A character card featuring a girl with long dark hair and a yellow flower accessory. The 3D modeling effect gives the character a toy-like quality, set against a crisp white card backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfmMT7cAs0OOnpiz1hvAeGISbMXadvg8tTjbgkyWByTdhnNGhB5TVkck1Aa6V0sIsTLqe3jSQAdQJzxEPBE85EPyt_NXtLS4JefvirFTZ-VJZF4ubJH7tQWMZnmgVQOk1MgnOWed5sKYySYz9eCfh79ktWX1cX5UQhCNPYMrzFiIMm2M3a3eH3N-fQAsP_uA_qaCfA3vWliYJwH9fR5UGKH2u4Q_2LaK6rGisFQoCcznXp10xLZ3G_MWU8ZIUTk4A5VzO1WpfeKnIp"/>
+<div class="absolute bottom-0 w-full bg-surface-container-highest py-1 text-center border-t border-outline-variant">
+<span class="font-label-bold text-[10px] text-on-surface uppercase">Iris</span>
+</div>
+</div>
+<div class="relative aspect-[3/4] bg-white rounded-xl card-3d-shadow border-2 border-white/50 overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform hidden sm:block">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<img class="w-full h-full object-contain p-2" data-alt="A cool male character card with headphones and a hoodie, designed with vibrant blues and soft lighting to fit the modern casual gaming aesthetic of the application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjUPL93jgev7p63Pk4PQgAPPbnWDX7FoEU4uyX9PecsWhrcUH0wsfB1jalijS6MKCaGYK_hfUGca2Uqv95cPbUyMKw6XqwqFKfLLaP2WUsfnhW8nGDsbw2PECyMylHWTiILxE_iK9ndbP9bwRRNVAxup3eiE2Ba22knbbTL5DVDVvxoNaOeE1n1J2HSTuMkqM8J53B4xGtamsicL4Pb2lVxW46dknVkqiaPDyhbcHWzNcpw0CtRGXrraOFscTS51Vvo9fO0eIPgZxU"/>
+<div class="absolute bottom-0 w-full bg-surface-container-highest py-1 text-center border-t border-outline-variant">
+<span class="font-label-bold text-[10px] text-on-surface uppercase">Jake</span>
+</div>
+</div>
+<div class="relative aspect-[3/4] bg-white rounded-xl card-3d-shadow border-2 border-white/50 overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform hidden sm:block">
+<div class="absolute inset-0 glossy-sheen pointer-events-none"></div>
+<img class="w-full h-full object-contain p-2" data-alt="A friendly female character card with a high ponytail and a bright red shirt. The card surface is glossy and reflective, enhancing the premium 3D feel of the digital board game." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKGKVBErwO4ToHOaXdaj3eLYD-MYH8-EaO1Tea7UMQ00eimsf-ZntCXU4UtOgA2KknZBRJq4snuufbcTfDs2jcwsS3pmsoGoS2rZERrk_FEQVwBEa3aNjDRya9zjrgxvRNzTdl8AAAUA-8sUpydOEGXNaIIpLK1ZyZ4TDHmevADxQZ0S3wrWDsouVOGD0OtNGL9U7eTA-InTkkYhdeEPNh-HqdPLNsrdyKFB33tVdj8G7GyiuzwT-92eZr98XI0BZnUufcxMT5q6MT"/>
+<div class="absolute bottom-0 w-full bg-surface-container-highest py-1 text-center border-t border-outline-variant">
+<span class="font-label-bold text-[10px] text-on-surface uppercase">Kim</span>
+</div>
+</div>
+</div>
+<!-- Your Target Character (Secret) -->
+<div class="absolute bottom-0 left-4 -translate-y-4 flex flex-col items-center">
+<span class="font-label-bold text-[10px] text-primary mb-1 uppercase">Your Card</span>
+<div class="w-20 h-24 bg-primary-container rounded-xl border-4 border-white shadow-xl overflow-hidden">
+<img class="w-full h-full object-contain p-1" data-alt="The secret character card assigned to the player, featuring a mysterious yet friendly character with a unique combination of traits. The card is highlighted with a primary-colored glow to signify its importance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsZhc45jxqbNwT_W_CMGvN8Hq9oE45i7LgMpRbehZ2E0gUKnw8oJydkYqNcslWGYLDn8tyhXo-eYFjysknOhWA5sld23iHySNH2L4raVGDROPU_Q6GI1bWNDPRjlCletW275FmvcFjstHlgkuW1go7VFNg28s7REJV78v5UjdhodPsiIX9rkpehZ1rMX_UHigzyjw6PDOk0ZTIWnv7IDQGiYyv8uqSb7XioSv7HHXm7KYyS05yWfVwvjQQIm8L9OKlnwSxc5dR73_q"/>
+</div>
+</div>
+</main>
+<!-- Interaction Tray (Bottom Section) -->
+<div class="fixed bottom-0 left-0 w-full z-40 bg-surface-container-low/90 backdrop-blur-xl border-t-2 border-white/20 px-lg pt-sm pb-lg flex flex-col gap-sm shadow-[0_-8px_32px_rgba(0,0,0,0.1)] rounded-t-3xl">
+<!-- Turn Indicator -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-3 h-3 bg-primary rounded-full animate-pulse shadow-[0_0_10px_#006399]"></div>
+<span class="font-headline-md text-headline-md text-primary uppercase">Your Turn</span>
+</div>
+<div class="text-on-surface-variant font-label-bold text-label-bold">0:24s</div>
+</div>
+<!-- Quick Question Chips -->
+<div class="flex overflow-x-auto gap-sm py-1 no-scrollbar">
+<button class="flex-shrink-0 bg-white hover:bg-surface-container-high text-on-surface border-2 border-outline-variant px-md py-2 rounded-full font-label-bold text-label-bold transition-all active:scale-95 shadow-sm">
+                Is it a man?
+            </button>
+<button class="flex-shrink-0 bg-white hover:bg-surface-container-high text-on-surface border-2 border-outline-variant px-md py-2 rounded-full font-label-bold text-label-bold transition-all active:scale-95 shadow-sm">
+                Do they wear glasses?
+            </button>
+<button class="flex-shrink-0 bg-white hover:bg-surface-container-high text-on-surface border-2 border-outline-variant px-md py-2 rounded-full font-label-bold text-label-bold transition-all active:scale-95 shadow-sm">
+                Is their hair brown?
+            </button>
+<button class="flex-shrink-0 bg-white hover:bg-surface-container-high text-on-surface border-2 border-outline-variant px-md py-2 rounded-full font-label-bold text-label-bold transition-all active:scale-95 shadow-sm">
+                Are they smiling?
+            </button>
+<button class="flex-shrink-0 bg-white hover:bg-surface-container-high text-on-surface border-2 border-outline-variant px-md py-2 rounded-full font-label-bold text-label-bold transition-all active:scale-95 shadow-sm">
+                Are they wearing a hat?
+            </button>
+</div>
+<!-- Custom Question Input -->
+<div class="flex items-center gap-sm bg-white p-1 rounded-2xl border-2 border-surface-container-highest shadow-inner">
+<input class="flex-1 bg-transparent border-none focus:ring-0 px-md font-body-md text-on-surface" placeholder="Ask a custom question..." type="text"/>
+<button class="bg-secondary text-white px-xl py-3 rounded-xl font-button-text text-button-text button-3d-push flex items-center gap-xs uppercase">
+<span>Ask</span>
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+<!-- BottomNavBar (Hidden in Gameplay for focus, but present for shell compliance) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-sm pb-safe pt-sm bg-surface-container-highest/90 backdrop-blur-xl border-t-2 border-white/20 shadow-2xl rounded-t-xl opacity-0 pointer-events-none sm:opacity-100 sm:pointer-events-auto sm:relative">
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 opacity-80 active:scale-95 transition-transform hover:bg-white/10 px-md py-xs">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-bold text-label-bold">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-md py-xs shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)] active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-bold text-label-bold">Lobby</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant/70 opacity-80 active:scale-95 transition-transform hover:bg-white/10 px-md py-xs">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-bold text-label-bold">Store</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,46 @@
+# Flutter/Dart
+**/build/
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.pub-cache/
+**/.packages
+**/pubspec.lock
+**/*.log
+
+# Android
+**/android/**/generated/
+**/android/app/src/main/res/drawable-*/
+**/android/app/src/main/res/mipmap-*/
+**/*.keystore
+**/*.jks
+
+# iOS
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/.generated/
+
+# Python
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/.venv
+**/venv/
+**/ENV/
+
+# Windows
+**/windows/flutter/ephemeral/
+**/windows/flutter/generated_config.inc
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
